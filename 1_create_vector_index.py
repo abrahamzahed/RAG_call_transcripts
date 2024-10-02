@@ -1,3 +1,10 @@
+from databricks.vector_search.client import VectorSearchClient
+
+#Import configs from rag_model_config.yaml file
+model_config = mlflow.models.ModelConfig(development_config='rag_model_config.yaml')
+databricks_resources = model_config.get("databricks_resources")
+retriever_config = model_config.get("retriever_config")
+
 #Create the endpoint
 client = VectorSearchClient(service_principal_client_id=,service_principal_client_secret=)
 
