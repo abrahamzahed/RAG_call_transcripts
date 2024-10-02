@@ -6,6 +6,7 @@ client.create_endpoint(
     endpoint_type="STANDARD"
 )
 
+#Generate a sample dataset of customer support call transcripts and write them to a delta table
 transcripts = [
     (1, "Customer: Hi, I'm having trouble with my data plan. It seems to be running out faster than usual. Agent: I understand your concern. Let's take a look at your account and usage patterns to identify any issues."),
     (2, "Customer: Hello, I'd like to upgrade my phone. Can you tell me what options are available? Agent: Certainly! I'd be happy to go over our current phone upgrade options with you. What type of phone are you interested in?"),
@@ -21,6 +22,8 @@ transcripts_df = spark.createDataFrame(data, ["id", "call_transcript"])
   .mode("overwrite")
   .saveAsTable(databricks_resources.get("source_delta_table")))
 
+#Create the vector search index
+#Use a delta sync index with a CONTINUOUS pipeline type so the index will be updated automatically when new records are added to the delta table
 index = client.create_delta_sync_index(
   endpoint_name=databricks_resources.get("vector_search_endpoint_name"),
   source_table_name=databricks_resources.get("source_delta_table"),
