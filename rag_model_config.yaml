@@ -30,7 +30,6 @@ retriever_config:
     k: 5
     query_type: ann
   schema:
-    chunk_text: content
---    document_uri: url
+    chunk_text: call_transcript
     primary_key: id
   vector_search_index: "dev.call_analytics_transcripts_index"
