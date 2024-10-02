@@ -11,7 +11,7 @@ llm_config:
   llm_parameters:
     max_tokens: 1500
     temperature: 0.01
-  llm_prompt_template:
+  llm_prompt_template: |
     Answer questions based only on the provided information. 
     If you do not know the answer to a question, say you do not know the answer. 
     Here is the history of the current conversation: {chat_history}. 
