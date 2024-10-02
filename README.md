@@ -3,7 +3,7 @@
 This repository contains a set of Python scripts and configurations for building and deploying a Retrieval-Augmented Generation (RAG) model that processes customer support call transcripts. The model leverages Databricks' Vector Search capabilities and LangChain to provide accurate and context-aware responses to user queries.
 
 ## Architecture
-![Architecture](RAG Architecture.png)
+![Architecture](relative%20path/to/RAG Architecture.png?raw=true)
 ## Usage
 1. Modify the `rag_model_config.yaml` file to use your specific project resouces and parameters.
 2. Run the script `1_create_vector_index.py` to create a vector search index from customer support call transcripts stored in a Delta table.
