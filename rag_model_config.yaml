@@ -1,6 +1,10 @@
 databricks_resources:
-  llm_endpoint_name: databricks-dbrx-instruct
+  llm_endpoint_name: databricks-meta-llama-3-1-70b-instruct
   vector_search_endpoint_name: call_transcripts_vector_endpoint
+  source_delta_table: dev.call_analytics.transcripts
+  embedding_model_endpoint_name: e5-small-v2
+  mlflow_run_name: call_transcript_rag
+  artifact_path: call_transcript_artifacts
 
 input_example:
   messages:
@@ -27,9 +31,8 @@ retriever_config:
   chunk_template: "Passage: {chunk_text}\n"
   data_pipeline_tag: call_transcript_RAG
   parameters:
-    k: 5
-    query_type: ann
+    k: 2
   schema:
     chunk_text: call_transcript
     primary_key: id
-  vector_search_index: "dev.call_analytics_transcripts_index"
+  vector_search_index: "dev.call_analytics.transcripts_index"
