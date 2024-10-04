@@ -36,13 +36,12 @@ instructions_to_reviewer = f"""### Instructions for Testing call transcript Chat
 deployment_info = agents.deploy(model_name=model_name_full, model_version=uc_registered_model_info.version, scale_to_zero=True)
 
 # Add the user-facing instructions to the Review App
-agents.set_review_instructions(model_name_full, instructions_to_reviewer)
+agents.set_review_instructions(databricks_resources.get("model_name_full"), instructions_to_reviewer)
 
 def wait_for_model_serving_endpoint_to_be_ready(ep_name):
     from databricks.sdk import WorkspaceClient
     from databricks.sdk.service.serving import EndpointStateReady, EndpointStateConfigUpdate
     import time
-    # TODO make the endpoint name as a param
     # Wait for it to be ready
     w = WorkspaceClient()
         state = ""
