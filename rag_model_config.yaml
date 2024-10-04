@@ -5,6 +5,7 @@ databricks_resources:
   embedding_model_endpoint_name: e5-small-v2
   mlflow_run_name: call_transcript_rag
   artifact_path: call_transcript_artifacts
+  model_name_full: dev.call_analytics.transcript_model
 
 input_example:
   messages:
