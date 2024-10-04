@@ -1,6 +1,10 @@
-
+from databricks import agents
 import os
 import mlflow
+
+#Import configs from rag_model_config.yaml file
+model_config = mlflow.models.ModelConfig(development_config='rag_model_config.yaml')
+databricks_resources = model_config.get("databricks_resources")
 
 # Log the model to MLflow
 with mlflow.start_run(run_name=databricks_resources.get("mlflow_run_name")):
